@@ -4,6 +4,8 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import { dbURI } from "../utils/db";
 import { rootPath } from "../utils/paths";
+import passport from "passport";
+import initializePassport from "../config/passport.config";
 
 const middlewares = Router();
 
@@ -24,5 +26,10 @@ middlewares.use(
     saveUninitialized: false,
   })
 ); // Sessions
+
+// Passport
+initializePassport();
+middlewares.use(passport.initialize());
+middlewares.use(passport.session());
 
 export default middlewares;

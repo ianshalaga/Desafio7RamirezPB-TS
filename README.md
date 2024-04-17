@@ -7,7 +7,7 @@ Séptimo desafío entregable del curso de Programación Backend de CoderHouse.
 Con base en el **login** del [entregable anterior](https://github.com/ianshalaga/Desafio6RamirezPB-TS), refactorizar para incluir los nuevos conceptos.
 
 - [x] Se deberá contar con un **hasheo** de contraseña utilizando **bcrypt**.
-- Se deberá contar con una implementación de **passport**, tanto para el **register** como para el **login**.
+- [x] Se deberá contar con una implementación de **passport**, tanto para el **register** como para el **login**.
 - Implementar el método de autenticación de **GitHub** a la vista de **login**.
 
 ## Entrega
@@ -64,6 +64,18 @@ Enlace al repositorio de **GitHub** con el proyecto completo, sin la carpeta de 
 
 > **bcrypt** es una biblioteca de **hashing** de contraseñas diseñada para ser segura y resistente a ataques de fuerza bruta. Se utiliza comúnmente en aplicaciones web y sistemas de autenticación para almacenar contraseñas de manera segura.
 
+- `npm i passport`
+
+> - **Passport** es un **middleware** de autenticación para **Node.js**. Proporciona una forma flexible y modular de autenticar usuarios en una aplicación web.
+
+- `npm i passport-local`
+
+> - **passport-local** es una estrategia de autenticación local para **Passport**. Permite autenticar a los usuarios utilizando un nombre de usuario y una contraseña almacenados localmente en la base de datos de la aplicación.
+
+- `npm i passport-github2`
+
+> - **passport-github2** es una estrategia de autenticación para **passport**, diseñada específicamente para la autenticación de usuarios utilizando **GitHub** como proveedor de autenticación.
+
 ## devDependencies
 
 - `npm i nodemon -D`
@@ -77,6 +89,9 @@ Enlace al repositorio de **GitHub** con el proyecto completo, sin la carpeta de 
 - `npm i @types/cookie-parser -D` (Definiciones de tipos de **TypeScript** para **cookie-parser**)
 - `npm i @types/express-session -D` (Definiciones de tipos de **TypeScript** para **express-session**)
 - `npm i @types/bcrypt -D` (Definiciones de tipos de **TypeScript** para **bcrypt**)
+- `npm i @types/passport -D` (Definiciones de tipos de **TypeScript** para **passport**)
+- `npm i @types/passport-local -D` (Definiciones de tipos de **TypeScript** para **passport-local**)
+- `npm i @types/passport-github2 -D` (Definiciones de tipos de **TypeScript** para **passport-github2**)
 
 > **TypeScript** dependencies.
 
