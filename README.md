@@ -8,7 +8,7 @@ Con base en el **login** del [entregable anterior](https://github.com/ianshalaga
 
 - [x] Se deberá contar con un **hasheo** de contraseña utilizando **bcrypt**.
 - [x] Se deberá contar con una implementación de **passport**, tanto para el **register** como para el **login**.
-- Implementar el método de autenticación de **GitHub** a la vista de **login**.
+- [x] Implementar el método de autenticación de **GitHub** a la vista de **login**.
 
 ## Entrega
 
