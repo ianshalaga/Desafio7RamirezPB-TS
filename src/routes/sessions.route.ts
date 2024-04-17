@@ -3,6 +3,7 @@ import User from "../interfaces/User";
 import { usersModel } from "../dao/models/users.model";
 import { failureStatus, successStatus } from "../utils/statuses";
 import UserLogin from "../interfaces/UserLogin";
+import { createHash, isValidPassword } from "../utils/passwordHashing";
 
 const sessionsRouter = Router();
 
@@ -14,7 +15,11 @@ sessionsRouter.post("/register", async (req: Request, res: Response) => {
     if (userExist) {
       throw new Error("El email ya existe.");
     }
-    const result = await usersModel.create({ ...user, rol: "user" });
+    const result = await usersModel.create({
+      ...user,
+      password: createHash(user.password),
+      rol: "user",
+    });
     console.log(result);
     res.json(successStatus);
   } catch (error) {
@@ -44,18 +49,16 @@ sessionsRouter.post("/login", async (req: Request, res: Response) => {
           .status(400)
           .send({ status: "error", error: credentialsError });
       }
-      const validPassword: boolean =
-        userLogin.password == user.password ? true : false;
-      if (!validPassword) {
+      if (!isValidPassword(user, userLogin.password)) {
         return res
-          .status(400)
+          .status(403)
           .send({ status: "error", error: credentialsError });
       }
       req.session.user = {
         name: `${user.firstName} ${user.lastName}`,
         email: user.email,
         age: user.age,
-        rol: "user",
+        rol: user.rol,
       };
     }
     res.json(successStatus);

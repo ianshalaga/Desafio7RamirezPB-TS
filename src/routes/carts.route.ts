@@ -5,7 +5,6 @@ import { CartManagerDB } from "../dao/services/CartManagerDB";
 import DbCart from "../interfaces/DbCart";
 import ProductCart from "../interfaces/ProductCart";
 import validateProductCart from "../validators/productCart";
-import cartsModel from "../dao/models/carts.model";
 import validateNumber from "../validators/number";
 
 const cartsRouter: Router = Router();

@@ -4,6 +4,12 @@ Séptimo desafío entregable del curso de Programación Backend de CoderHouse.
 
 ## Consigna
 
+Con base en el **login** del [entregable anterior](https://github.com/ianshalaga/Desafio6RamirezPB-TS), refactorizar para incluir los nuevos conceptos.
+
+- [x] Se deberá contar con un **hasheo** de contraseña utilizando **bcrypt**.
+- Se deberá contar con una implementación de **passport**, tanto para el **register** como para el **login**.
+- Implementar el método de autenticación de **GitHub** a la vista de **login**.
+
 ## Entrega
 
 Enlace al repositorio de **GitHub** con el proyecto completo, sin la carpeta de **node_modules**.
@@ -54,6 +60,10 @@ Enlace al repositorio de **GitHub** con el proyecto completo, sin la carpeta de 
 
 > Es una herramienta para almacenar sesiones de usuario de forma persistente en una base de datos **MongoDB** en aplicaciones **Express.js**, proporcionando beneficios en términos de persistencia, escalabilidad y seguridad.
 
+- `npm i bcrypt`
+
+> **bcrypt** es una biblioteca de **hashing** de contraseñas diseñada para ser segura y resistente a ataques de fuerza bruta. Se utiliza comúnmente en aplicaciones web y sistemas de autenticación para almacenar contraseñas de manera segura.
+
 ## devDependencies
 
 - `npm i nodemon -D`
@@ -66,6 +76,7 @@ Enlace al repositorio de **GitHub** con el proyecto completo, sin la carpeta de 
 - `npm i @types/express -D` (Definiciones de tipos de **TypeScript** para **Express.js**)
 - `npm i @types/cookie-parser -D` (Definiciones de tipos de **TypeScript** para **cookie-parser**)
 - `npm i @types/express-session -D` (Definiciones de tipos de **TypeScript** para **express-session**)
+- `npm i @types/bcrypt -D` (Definiciones de tipos de **TypeScript** para **bcrypt**)
 
 > **TypeScript** dependencies.
 

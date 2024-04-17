@@ -6,7 +6,6 @@ import { successStatus, failureStatus } from "../utils/statuses";
 import validateQueryParams from "../validators/queryParams";
 import validateUpdateProduct from "../validators/updateProduct";
 import Product from "../interfaces/Product";
-import DbProduct from "../interfaces/DbProduct";
 import GetProduct from "../interfaces/GetProduct";
 
 const productsRouter: Router = Router();
