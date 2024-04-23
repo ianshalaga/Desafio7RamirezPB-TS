@@ -51,9 +51,12 @@ const initializePassport = () => {
       { usernameField: "email" },
       async (username: string, password: string, done) => {
         try {
+          console.log("PASSPORT LOGIN");
           const user: User = await usersModel.findOne({ email: username });
+          console.log(user);
           if (!user) return done(null, false);
           const valid = isValidPassword(user, password);
+          console.log(valid);
           if (!valid) return done(null, false);
           return done(null, user);
         } catch (error) {
@@ -74,19 +77,20 @@ const initializePassport = () => {
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
-          // console.log(profile);
+          console.log(profile);
           const user: User = await usersModel.findOne({
             email: profile._json.email,
           });
           if (!user) {
             const newUser = {
-              firstName: profile._json.name,
-              lastName: profile._json.company,
-              email: profile._json.email,
+              firstName: profile._json.name || "firstName",
+              lastName: profile._json.name || "lastName",
+              email: profile.emails[0].value || "email",
               age: 0,
               // password: profile._json.email,
               password: " ",
-              rol: profile._json.type.toLowerCase(),
+              // rol: profile._json.type.toLowerCase(),
+              rol: "user",
             };
             const result = await usersModel.create(newUser);
             done(null, result);
@@ -101,11 +105,13 @@ const initializePassport = () => {
   );
 
   passport.serializeUser((user: dbUser, done) => {
+    console.log("serialize");
     done(null, user._id);
   });
 
   passport.deserializeUser(async (id: string, done) => {
     try {
+      console.log("deserialize");
       let user: dbUser = await usersModel.findById(id);
       done(null, user);
     } catch (error) {

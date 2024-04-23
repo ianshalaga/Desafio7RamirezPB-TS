@@ -120,12 +120,14 @@ sessionsRouter.get(
   "/githubcallback",
   passport.authenticate("github", { failureRedirect: "/login" }),
   async (req: Request, res: Response) => {
+    console.log(req.user);
     req.session.user = {
       name: `${req.user.firstName} ${req.user.lastName}`,
       email: req.user.email,
       age: req.user.age,
       rol: req.user.rol,
     };
+    console.log(req.session.user);
     res.redirect("/products");
   }
 );
